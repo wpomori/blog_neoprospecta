@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang='pt-br'>
+    <head>
+        <meta charset='UTF-8'/>
+        <title>Discutindo Python</title>
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'/>
+        <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'/>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lobster'/>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300'/>
+        <link rel='stylesheet' href='{% static 'css/blog.css' %}'/>
+    </head>
+    <body>
+        <div class='page-header'>
+            <h1><a>Questões sobre Python. &nbsp; <a href='{% url 'create_blogs' %}'><span class='glyphicon-plus'>ADICIONAR</span></a></a></h1>
+        </div>
+
+        <div class="content container">
+            <form method="post">
+                {% csrf_token %}
+                <h2>Are you sure you want to remove {{ blog.pergunta }} ?</h2>
+
+                <button type='submit'><a class='btn btn-info'>Confirm</a></button>
+            </form>
+            <footer id="rodape">
+            <p>Copyright &copy; 2018 - by Wellington Pine Omori <br/>
+            <a href="https://www.facebook.com/wellington.omori" target="_blank"> Facebook </a> | 
+            <a href="https://twitter.com/wpomori" target="_blank"> Twitter</a> </p>
+            </footer>
+        </div>
+    </body>
+</html>
+
